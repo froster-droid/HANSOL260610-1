@@ -52,7 +52,7 @@ with st.sidebar:
 @st.cache_data(ttl=300)
 def fetch_stock_data(tickers: dict, period: str):
     data = {}
-    for name, ticker in tickers.items():
+    for name, ticker in tickers:
         try:
             stock = yf.Ticker(ticker)
             hist = stock.history(period=period)
